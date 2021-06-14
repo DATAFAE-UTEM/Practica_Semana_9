@@ -20,6 +20,8 @@ text_2 = "REF. DA CURSO A ANOTACION EN EL  REGISTRO ESPECIAL DE ENTIDADES  INFOR
 '''
 
 def limpieza_text(text):
+    # Pasar a minúscula
+    text = text.lower()
     # Eliminación de números
     text = re.sub("\d+", ' ', text)
     # Eliminación de espacios en blanco multiples
@@ -136,7 +138,7 @@ print(df)
 
 '''
     MODELO TF-IDF 'Suavizado'
-(incluye todas las palabras sin stopwords)
+(incluye todas las palabras sin stopwords y/o limpieza)
 '''
 
 vectorizer = TfidfVectorizer()
