@@ -21,10 +21,10 @@ corpu <- VCorpus(VectorSource(Data_text$Texto_limpio))
 length(corpu)
 
 # stopwprds personalizadas
-myStopwords = c( stopwords("spanish"),"Carlos","Pavez","Tolosa","sbif","sefialo","dofia")
+myStopwords <- c( stopwords("spanish"),"Carlos","Pavez","Tolosa","sbif","sefialo","dofia")
 
 # TDM aplicando la ponderación TF-IDF en lugar de la frecuencia del término
-tdm = TermDocumentMatrix(corpu,
+tdm <- TermDocumentMatrix(corpu,
                          control = list(weighting = weightTfIdf,
                                         stopwords = myStopwords,
                                         removePunctuation = T,
@@ -51,4 +51,6 @@ hfp.df$names <- rownames(hfp.df)
 ggplot(hfp.df, aes(reorder(names,high.freq), high.freq)) +
   geom_bar(stat="identity") + coord_flip() +
   xlab("Terms") + ylab("Frequency") +
+    ggtitle("Term frequencies")
+#correlacion coseno, matris tf_idf
 
